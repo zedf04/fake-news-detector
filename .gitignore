@@ -1,0 +1,24 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.idea/
+.vscode/
+
+# Large trained models
+saved_models/*.keras
+saved_models/*.pkl
+
+# Local NLTK data
+nltk_data/
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fake News Detector</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 750px;
+                margin: 50px auto;
+                padding: 20px;
+                background: #f4f4f4;
+            }
+            h1 {
+                text-align: center;
+                color: #333;
+            }
+            textarea {
+                width: 100%;
+                padding: 10px;
+                font-size: 15px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+            }
+            select,
+            button {
+                margin-top: 12px;
+                padding: 10px 20px;
+                font-size: 15px;
+                border-radius: 6px;
+            }
+            button {
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+            .result {
+                margin-top: 24px;
+                padding: 16px;
+                background: #fff;
+                border-radius: 8px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+            .result h2 {
+                font-size: 28px;
+                margin: 0;
+            }
+            .result p {
+                color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Fake News Detection System</h1>
+        <form method="POST" action="/predict">
+            <textarea
+                name="news"
+                rows="8"
+                placeholder="Paste your news article here..."
+            >
+{{ news or '' }}</textarea
+            >
+            <br />
+            <label>Select Model:</label>
+            <select name="model">
+                <option value="rf">Random Forest (Recommended)</option>
+                <option value="lstm">LSTM (Deep Learning)</option>
+            </select>
+            <button type="submit">Check News</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            <h2>{{ prediction }}</h2>
+            <p>Confidence: <strong>{{ confidence }}%</strong></p>
+            <p>Model Used: <strong>{{ model_used }}</strong></p>
+        </div>
+        {% endif %}
+    </body>
+</html>
