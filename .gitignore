@@ -12,9 +12,7 @@ __pycache__/
 .idea/
 .vscode/
 
-# Large trained models
-saved_models/*.keras
-saved_models/*.pkl
+
 
 # Local NLTK data
 nltk_data/
